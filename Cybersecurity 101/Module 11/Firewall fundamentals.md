@@ -78,3 +78,20 @@ These rules are made for outgoing traffic only. For example, blocking all outgoi
 3. **Forward Rules**
 Forwarding rules are created to forward specific traffic inside the network. For example, a forwarding rule can be created to forward the incoming HTTP (port 80) traffic to the web server located in your network.
 
+# Netfilter
+Netfilter is the framework inside the Linux OS with core firewall functionalities, including packet filtering, NAT, and connection tracking. This framework serves as the foundation for various firewall utilities available in Linux to control network traffic. Some common firewall utilities that utilize this framework are listed below:
+
+1. **iptables:** This is the most widely used utility in many Linux distributions. It uses the Netfilter framework that provides various functionalities to control network traffic.
+2. **nftables:** It is a successor to the “iptables” utility, with enhanced packet filtering and NAT capabilities. It is also based on the Netfilter framework.
+3. **firewalld:** This utility also operates on the Netfilter framework and has predefined rule sets. It works differently from the others and comes with different pre-built network zone configurations.
+
+# ufw
+ufw (Uncomplicated Firewall), as the name says, eliminates the complications of making rules in a complex syntax in “iptables”(or its successor) by giving you an easier interface. It is more beginner-friendly. Basically, whatever rules you need in “iptables”, you can define them with some easy commands via ufw, which would then be configuring your desired rules in “iptables”. Let’s have a look at some basic ufw commands down below.
+
+1. sudo ufw status
+2. sudo ufw enable/disable
+3. sudo ufw default allow/deny incoming/outgoing
+4. If we want to block the incoming SSH traffic- ufw deny 22/tcp
+5. sudo ufw status numbered
+6. sudo ufw delete 2
+
